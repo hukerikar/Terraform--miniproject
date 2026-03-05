@@ -57,3 +57,17 @@ The Terraform configuration is designed so that:
 The main Terraform code remains static
 
 Only the .tfvars file changes per environment
+
+3️⃣ Deploy to Specific Environment
+
+Example – Deploy to DC:
+
+terraform apply -var-file="dc.tfvars"
+
+Deploy to DR:
+
+terraform apply -var-file="dr.tfvars"
+
+Deploy to Non-Prod:
+
+terraform apply -var-file="nonprod.tfvars"
