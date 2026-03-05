@@ -124,6 +124,32 @@ terraform apply -var-file="nonprod.tfvars"
 
 ---
 
-# 👨‍💻 Author
+# ⚠️ Difficulties Faced
 
-Cloud Infrastructure Project demonstrating scalable Azure infrastructure using **Terraform and Microsoft Azure**.
+While building this project, a few practical challenges were encountered due to limitations of the **Azure Free Subscription**.
+
+### 1️⃣ VM Size Availability Limitations
+Many Linux VM sizes were **not available under the Azure free subscription**.  
+Because of this, several VM sizes had to be tested before finding one that could actually be deployed.
+
+### 2️⃣ Regional Restrictions
+Some VM sizes that were available in Azure were **not supported in certain regions**.  
+This required multiple attempts by changing:
+
+- VM size
+- Azure region
+- Deployment configuration
+
+before successfully provisioning the infrastructure.
+
+### 3️⃣ Trial and Error During Deployment
+Due to the above restrictions, the deployment process required **multiple back-and-forth iterations** including:
+
+- Updating `.tfvars` files
+- Changing VM sizes
+- Switching Azure regions
+- Re-running Terraform deployments
+
+This experience helped in better understanding how **Azure resource availability varies across regions and subscription tiers**.
+
+Despite these challenges, the final Terraform configuration was designed to remain **environment-independent**, requiring only `.tfvars` changes to deploy across multiple environments.
